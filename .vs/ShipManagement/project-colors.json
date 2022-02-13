@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "7fdd18eb-81bc-4049-845e-f5a579f70a40": {
+      "ProjectGuid": "7fdd18eb-81bc-4049-845e-f5a579f70a40",
+      "DisplayName": "ShipManagement",
+      "ColorIndex": 0
+    },
+    "147e3390-9617-4487-8aea-a96868633861": {
+      "ProjectGuid": "147e3390-9617-4487-8aea-a96868633861",
+      "DisplayName": "WebApplication1",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
