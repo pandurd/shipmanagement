@@ -42,10 +42,10 @@ namespace ShipManagement.Controllers
         }
 
         [HttpGet]
-        [Route("details")]
-        public async Task<IActionResult> GetShip(Guid id)
+        [Route("{shipID}")]
+        public async Task<IActionResult> GetShip(Guid shipID)
         {
-            var response = await _shipRepo.GetShip(id);
+            var response = await _shipRepo.GetShip(shipID);
 
             if (response == null)
                 return NotFound();

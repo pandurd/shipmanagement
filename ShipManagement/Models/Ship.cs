@@ -15,10 +15,10 @@ namespace ShipManagement.Models
         public string Name { get; set; }
 
         [Required]
-        public int Length { get; set; }
+        public decimal Length { get; set; }
 
         [Required]
-        public int Width { get; set; }
+        public decimal Width { get; set; }
 
         [Required]
         //regex for AAAA-1111-A1 

@@ -1,5 +1,10 @@
-import React, { Component } from 'react';
-import { Avatar, Button, Box, grommet, Grommet, Nav, Sidebar, Icons } from 'grommet';
+import React, { Component, useEffect } from 'react';
+import { Avatar, Button, Box, grommet, Grommet, Nav, Sidebar, Icons,
+ TextInput,
+ MaskedInput,
+ Form, FormField,
+ Text
+} from 'grommet';
 import {
     Analytics,
     Chat,
@@ -9,15 +14,14 @@ import {
     Projects,
    StatusInfoSmall,
   } from 'grommet-icons';
+  import ShipList from './ShipList';
 
-export class Home extends Component {
-  static displayName = Home.name;
+const Home = (props) => {
+  return (
+    <Box>
+      <ShipList />
+    </Box>
+  );
+};
 
-  render () {
-    return (
-      <div>
-       
-      </div>
-    );
-  }
-}
+export default Home;

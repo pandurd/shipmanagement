@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router';
-import { Home } from './components/Home';
-import { FetchData } from './components/FetchData';
-import { Paginated } from './components/ShipDa';
-
+import ShipList from './components/ShipList';
+import Home from './components/Home';
+import ShipView from './components/ShipView';
+import { BrowserRouter, Route, Router, Switch, useHistory } from "react-router-dom";
 import { Avatar, Button, Box,
     Stack,
     Text,
@@ -19,7 +18,6 @@ import {
     Split,
     StatusInfoSmall,
 } from 'grommet-icons';
-import { ShipManagementHeader} from './components/Header';
 
 import * as Icons from 'grommet-icons';
 
@@ -59,8 +57,13 @@ const MainNavigation = () => (
   </Nav>
 );
 
-const Layout = props => (
-   <Box direction="row" height={{min: '100%'}}>
+
+
+const Layout = (props) => {
+  const history = useHistory();
+
+  return(
+   <Box direction="row" style={{ height: '100vh' }}>
       <Sidebar background="brand" 
         header={
           <Avatar src="//s.gravatar.com/avatar/b7fb138d53ba0f573212ccce38a7c43b?s=80" />
@@ -68,20 +71,17 @@ const Layout = props => (
         footer={
           <Button icon={<Icons.Help />} hoverIndicator />
         }>
-        <Nav gap="small">
+        <Nav gap="small" onClick={() => history.replace({ pathname: `/`})}>
           <Button icon={<Icons.Projects />} hoverIndicator />
         </Nav>
       </Sidebar>
 
-      <Main>
-        <ShipManagementHeader />
-
-        <Box>
-           <Paginated />
-        </Box>
+        <Main>
+            {props.children}
+         
       </Main>
-    </Box>
-);
+    </Box>);
+};
 
 export default Layout
 
