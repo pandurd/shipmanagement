@@ -45,11 +45,11 @@ const AddEditShip = (props) => {
                 </FormField>
 
                 <FormField name="width" htmlFor="width" label="width">
-                    <TextInput id="width" name="width" />
+                    <TextInput type='number' step='0.01' id="width" name="width" />
                 </FormField>
 
                 <FormField name="length" htmlFor="length" label="length">
-                    <TextInput id="length" name="length" />
+                    <TextInput type='number' step='0.01' id="length" name="length" />
                 </FormField>
 
                 <FormField name="code" htmlFor="code" label="Code">

@@ -30,11 +30,11 @@ namespace ShipManagemenTest
 
             var mockRepo = new Mock<ShipRepo>();
             var mockLogger = new Mock<ILogger<ShipController>>();
-            mockRepo.Setup(repo => repo.GetShips(It.IsAny<int>(), It.IsAny<int>())).ReturnsAsync(res);
+            mockRepo.Setup(repo => repo.GetAllShips()).ReturnsAsync(res);
             var controller = new ShipController(mockRepo.Object, mockLogger.Object);
 
             //Act
-            var result = await controller.GetShips(10, 10);
+            var result = await controller.GetAllShips();
 
             //Assert
             Assert.IsInstanceOf<OkObjectResult>(result);
