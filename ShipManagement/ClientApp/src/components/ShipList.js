@@ -176,6 +176,7 @@ const ShipList = () => {
 
       <Box align="center" className='pagination'>
         <Pagination 
+          page={currentPage}
           step={5}
           numberItems={totalShips} 
           onChange={({ page }) => setCurrentPage(page)}/>

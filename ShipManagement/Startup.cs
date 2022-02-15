@@ -90,7 +90,8 @@ namespace ShipManagement
 
                 if (env.IsDevelopment())
                 {
-                    spa.UseReactDevelopmentServer(npmScript: "start");
+                    //uncomment while running in local / do in local config
+                    //spa.UseReactDevelopmentServer(npmScript: "start");
                 }
             });
         }
