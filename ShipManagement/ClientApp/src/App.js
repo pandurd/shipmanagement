@@ -1,19 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route } from 'react-router';
 import Home from './components/Home';
 import ShipView from './components/ShipView';
-import Layout from  './Layout';
+import Layout from './Layout';
 
-import { Avatar, Button, Box, grommet, Grommet, Nav, Sidebar, Icons } from 'grommet';
-import {
-    Analytics,
-    Chat,
-    Clock,
-    Configure,
-    Help,
-    Projects,
-    StatusInfoSmall,
-} from 'grommet-icons';
+import { grommet, Grommet } from 'grommet';
+
+import './custom.css';
 
 const App = props => (
   <Grommet theme={grommet} >

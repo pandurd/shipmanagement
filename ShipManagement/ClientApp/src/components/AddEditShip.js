@@ -1,18 +1,13 @@
-import React, { Component, useEffect } from 'react';
-import { Avatar, Button, Box, grommet, Grommet, Nav, Sidebar, Icons,
- TextInput,
- MaskedInput,
- Form, FormField,
- Text} from 'grommet';
-import {
-    Analytics,
-    Chat,
-    Clock,
-    Configure,
-    Help,
-    Projects,
-   StatusInfoSmall,
-  } from 'grommet-icons';
+import React from 'react';
+import {  Button,
+    Box,
+    TextInput,
+    MaskedInput,
+    Form,
+    FormField,
+    Text
+} from 'grommet';
+
 
 const AddEditShip = (props) => {
     const [value, setValue] = React.useState({...props.currentEditShip});

@@ -1,18 +1,9 @@
-import React, { Component, useEffect } from 'react';
-import { Avatar, Button, Box, grommet, Grommet, Nav, Sidebar, Icons,
- TextInput,
- MaskedInput,
- Form, FormField,
- Text} from 'grommet';
-import {
-    Analytics,
-    Chat,
-    Clock,
-    Configure,
-    Help,
-    Projects,
-   StatusInfoSmall,
-  } from 'grommet-icons';
+import React from 'react';
+import { Button,
+    Box,
+    Form,
+    Text
+} from 'grommet';
 
 const DeleteShip = (props) => {
 
@@ -29,7 +20,6 @@ const DeleteShip = (props) => {
                 props.deleteShip(props.currentEditShip); 
                 props.closeModal();
             });
-
     };
   
     return (
@@ -39,7 +29,9 @@ const DeleteShip = (props) => {
                 onSubmit={() => {  doDeleteShip(); }}
                 onReset={() => props.closeModal()}
             >
-                <Text> Confirm Delete ? </Text> 
+                <br/>
+                <br/>
+                <Text> Confirm Delete Ship ? </Text> 
                 <Text> {props.currentEditShip.name} </Text>
                 
                 <br/>

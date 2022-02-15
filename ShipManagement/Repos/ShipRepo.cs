@@ -11,12 +11,17 @@ namespace ShipManagement.Repos
     {
         private readonly ShipContext _shipContext;
 
+        public ShipRepo()
+        {
+
+        }
+
         public ShipRepo(ShipContext shipContext)
         {
             _shipContext = shipContext;
         }
 
-        public async Task<bool> DeleteShip(Guid ID)
+        public virtual async Task<bool> DeleteShip(Guid ID)
         {
             bool result;
 
@@ -39,25 +44,27 @@ namespace ShipManagement.Repos
             return result;
         }
 
-        public async Task<Ship> GetShip(Guid ID)
+        public virtual async Task<Ship> GetShip(Guid ID)
         {
             var ship = await _shipContext.Ships.FirstOrDefaultAsync((ship) => ship.ID == ID);
             return ship;
         }
 
-        public async Task<List<Ship>> GetShips(int Page = 0, int shipsPerPage = 10)
+        public virtual async Task<PaginatedShips> GetShips(int Page = 1, int shipsPerPage = 5)
         {
-            var result = await _shipContext.Ships.Take(shipsPerPage).Skip(Page * shipsPerPage).ToListAsync();
+            var result = new PaginatedShips();
+            result.Ships = await _shipContext.Ships.Skip((Page - 1) * shipsPerPage).Take(shipsPerPage).ToListAsync();
+            result.ShipsCount = await _shipContext.Ships.CountAsync();
             return result;
         }
 
-        public async Task<List<Ship>> GetAllShips()
+        public virtual async Task<List<Ship>> GetAllShips()
         {
             var result = await _shipContext.Ships.ToListAsync();
             return result;
         }
 
-        public async Task<Ship> InsertShip(Ship ship)
+        public virtual async Task<Ship> InsertShip(Ship ship)
         {
             if (ship.ID == null)
                 ship.ID = Guid.NewGuid();
@@ -68,7 +75,7 @@ namespace ShipManagement.Repos
             return ship;
         }
 
-        public async Task<Ship> UpdateShip(Ship ship)
+        public virtual async Task<Ship> UpdateShip(Ship ship)
         {
             _shipContext.Update(ship);
             await _shipContext.SaveChangesAsync();

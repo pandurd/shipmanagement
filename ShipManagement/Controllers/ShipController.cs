@@ -4,7 +4,6 @@ using ShipManagement.Models;
 using ShipManagement.Repos;
 using System;
 using System.Threading.Tasks;
-using Serilog.AspNetCore;
 
 namespace ShipManagement.Controllers
 {
@@ -14,6 +13,7 @@ namespace ShipManagement.Controllers
     {
         private readonly IShipRepo _shipRepo;
         private readonly ILogger<ShipController> _logger;
+
         public ShipController(IShipRepo shipRepo, ILogger<ShipController> logger)
         {
             _shipRepo = shipRepo;
@@ -21,7 +21,7 @@ namespace ShipManagement.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetShips([FromQuery] int Page = 0, [FromQuery] int shipsPerPage = 10)
+        public async Task<IActionResult> GetShips([FromQuery] int Page = 1, [FromQuery] int shipsPerPage = 5)
         {
             var response = await _shipRepo.GetShips(Page, shipsPerPage);
 

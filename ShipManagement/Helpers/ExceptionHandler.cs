@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -44,10 +43,6 @@ namespace ShipManagement.Helpers
             {
                 case ApplicationException ex:
                     response.StatusCode = (int)HttpStatusCode.BadRequest;
-                    errorResponse.Message = ex.Message;
-                    break;
-                case KeyNotFoundException ex:
-                    response.StatusCode = (int)HttpStatusCode.NotFound;
                     errorResponse.Message = ex.Message;
                     break;
                 default:

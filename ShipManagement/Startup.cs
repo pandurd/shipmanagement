@@ -102,6 +102,12 @@ namespace ShipManagement
 
             context.Ships.Add(Titanic);
             context.Ships.Add(Karaboudjan);
+
+            for (int i = 0; i < 20; i++)
+            {
+                context.Ships.Add(new Ship { ID = Guid.NewGuid(), Name = i.ToString(), Code = "RRRI-3422-G6", Length = 120, Width = 100 });
+            }
+
             context.SaveChanges();
         }
     }

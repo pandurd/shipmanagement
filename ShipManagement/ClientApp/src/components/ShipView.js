@@ -1,30 +1,18 @@
-import React, { Component, useEffect } from 'react';
-import { Avatar, Button, Box, grommet, Grommet, Nav, Sidebar, Icons,
- TextInput,
- MaskedInput,
- Form, FormField,
- Text, Grid, Header, Anchor
+import React, { useEffect } from 'react';
+import { 
+  Box, 
+  TextInput,
+  Form,
+  FormField,
+  Header,
+  Anchor
 } from 'grommet';
-import {
-    Analytics,
-    Chat,
-    Clock,
-    Deliver,
-    Configure,
-    Help,
-    Projects,
-   StatusInfoSmall,
-   Add
-  } from 'grommet-icons';
+import { Deliver } from 'grommet-icons';
 
+import { DimensionFormatter } from './../helpers'
 
 const ViewShip = (props) => {
     const [value, setValue] = React.useState({});
-
-    const dimensionFormatter = new Intl.NumberFormat('en-GB', {
-      style: 'decimal',
-      minimumFractionDigits: 2,
-    });
     
     useEffect(() => {
       async function GetShipDetails(){
@@ -37,7 +25,6 @@ const ViewShip = (props) => {
 
    return (
     <Box>
-
       <Header background="light-4" pad="medium" height="xsmall">
         <Anchor
           href="/"
@@ -47,17 +34,17 @@ const ViewShip = (props) => {
       </Header>
 
       <Box pad="medium">
-        <Form value={value} >
+        <Form >
           <FormField name="name" htmlFor="name" label="Ship Name">
-              <TextInput id="name" name="name" value={value.name} readOnly/>
+              <TextInput data-testid="name" id="name" name="name" value={value.name} readOnly/>
           </FormField>
 
           <FormField name="width" htmlFor="width" label="width">
-              <TextInput id="width" name="width"  value={value.width && dimensionFormatter.format(value.width)} />
+              <TextInput id="width" name="width"  value={value.width && DimensionFormatter.format(value.width)} readOnly/>
           </FormField>
 
           <FormField name="length" htmlFor="length" label="length">
-              <TextInput id="length" name="length" value={value.length && dimensionFormatter.format(value.length)} />
+              <TextInput id="length" name="length" value={value.length && DimensionFormatter.format(value.length)} readOnly/>
           </FormField>
 
           <FormField name="code" htmlFor="code" label="Code">

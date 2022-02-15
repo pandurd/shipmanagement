@@ -12,3 +12,11 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+.load-spinner {
+  margin: 20% auto auto auto;
+}
+
+.pagination {
+  margin-top: 3rem;
+}
