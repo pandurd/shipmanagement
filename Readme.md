@@ -1,7 +1,7 @@
 # Running in local
 Run via Docker command, Self hosted in Visual studio 2022 <br />
 
-To start via Docker, run follwing command in root <br />
+To start via Docker, run follwing command in root folder <br />
 ```
 docker build . --tag shipmgmt
 docker run --env ASPNETCORE_ENVIRONMENT=Development -d -p 5050:80 shipmgmt:latest 
