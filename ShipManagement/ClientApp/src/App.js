@@ -10,10 +10,10 @@ import './custom.css';
 
 const App = props => (
   <Grommet theme={grommet} >
-        <Layout>
-            <Route exact path='/' component={Home} />
-            <Route path='/view/:id' component={ShipView}  />
-        </Layout>
+    <Layout>
+        <Route exact path='/' component={Home} />
+        <Route path='/view/:id' component={ShipView}  />
+    </Layout>
   </Grommet>
 );
 

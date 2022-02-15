@@ -93,10 +93,13 @@ const ShipList = () => {
   }, [currentPage]);
 
   const AddShipLocal = (ship) => {
-    const existingShips = JSON.parse(JSON.stringify(currentShips));
-    const updatedShips = [...existingShips, ship];
-    setCurrentShips(updatedShips);
+    //const existingShips = JSON.parse(JSON.stringify(currentShips));
+    //const updatedShips = [...existingShips, ship];
+    //setCurrentShips(updatedShips);
     setCurrentEditShip({});
+
+    //reload grid
+    fetchShips();
   }
 
   const UpdateShipLocal = (ship) => {
